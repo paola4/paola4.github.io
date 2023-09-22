@@ -43,12 +43,13 @@ jobs:
           extended: true
 
       - name: 🛠️ Build website
-        run: hugo --gc --minify -s ${{github.workspace}}/gpaola --baseURL "${{ steps.pages.outputs.base_url }}/" 
+        run: hugo --gc --minify -s ${{github.workspace}}/gpaola -d ${{github.workspace}}/dist --baseURL "${{ steps.pages.outputs.base_url }}/" 
 
       - name: 📦 Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: '${{github.workspace}}/dist'
+          
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
