@@ -1,0 +1,11 @@
+{{ $permalink := .Permalink }}
+    <a class="subtitle is-4" href="{{ .Permalink }}">{{ .Title }}</a>
+    <span class="heading">{{ .Site.Params.Author }} | <time>{{ .PublishDate.Format "January 2, 2006"}}</time></span>
+    <div class="content">
+        {{ .Summary }}
+    </div>
+    <div class="tags">
+        {{ range .Params.categories }}
+        <a class="tag is-warning is-rounded is-light" href="/categories/{{ . | urlize}}">{{ . }}</a>
+        {{ end }}
+    </div>

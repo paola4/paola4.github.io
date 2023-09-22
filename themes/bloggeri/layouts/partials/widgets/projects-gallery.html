@@ -1,0 +1,17 @@
+<figure class="img__wrap">
+    {{ if and (isset .Params "image") .Params.image }}
+    <a href="{{ .Permalink }}" title="" class="">
+        <img class="img__img" src="{{.Params.image | absURL}}" alt="">
+        <div class="img__description"> 
+            <div class="hero">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">{{ .Title }}</h1>
+                        <p> {{ .Description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    {{ end }}
+</figure>

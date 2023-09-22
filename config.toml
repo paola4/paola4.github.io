@@ -1,0 +1,43 @@
+baseURL = 'http://paola4.github.io'
+languageCode = 'en-us'
+title = 'giselepao.la'
+theme = "bloggeri"
+paginate                     = 4
+googleAnalytics = "UA-123-45"
+
+[params]
+    # Metadata and author information
+    author                       = "Gisele Paola"
+    authorImage                  = "/images/gisele_illustration.png"
+    description                  = "Personal site and blog for Gisele P."   # Site description
+    
+    # Theme customization
+    themeStyle                   = "auto"                                   # Choose "light" or "dark" or "auto"
+    primaryColor = "#1a535c"
+    googleFont = "Nunito Sans"
+    
+[markup.goldmark.renderer]
+unsafe = true
+
+# Define social media information
+[[menu.social]]
+    name = "GitHub"
+    url = "https://github.com/paola4"
+    pre = "<i class='fab fa-github'></i>"
+
+# Define the menu
+[[menu.main]]
+  name = "About"
+  url = "/about"
+  weight = 1
+
+[[menu.main]]
+  name = "Projects"
+  url = "/projects"
+  weight = 2
+
+[[menu.main]]
+  name = "Blog"
+  url = "/blog"
+  weight = 3
+

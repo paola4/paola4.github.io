@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ $template := resources.Get "style_override_about.scss" }}
+{{ $style := $template | resources.ExecuteAsTemplate "style.scss" . | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ .Content }}
+
+{{ end }}
+
