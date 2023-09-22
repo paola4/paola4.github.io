@@ -33,6 +33,7 @@ jobs:
           submodules: true #Themes in Hugo are usually submodules
 
       - name: 📄 Setup Pages
+        id: pages
         uses: actions/configure-pages@v3
 
       - name: ✨ Setup Hugo
@@ -46,7 +47,7 @@ jobs:
           sudo mv hugo /usr/local/bin    
 
       - name: 🛠️ Build website
-        run: hugo -s ${{github.workspace}}/gpaola -d ${{github.workspace}}/dist  --environment github-pages --log -v
+        run: hugo --gc --minify -s ${{github.workspace}}/gpaola --baseURL "${{ steps.pages.outputs.base_url }}/" 
 
       - name: 📦 Upload artifact
         uses: actions/upload-pages-artifact@v1
