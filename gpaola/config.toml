@@ -1,4 +1,4 @@
-baseURL = 'http://paola4.github.io'
+baseURL = 'https://paola4.github.io'
 languageCode = 'en-us'
 title = 'giselepao.la'
 theme = "bloggeri"
