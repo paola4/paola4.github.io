@@ -37,17 +37,13 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: ✨ Setup Hugo
-        env:
-          HUGO_VERSION: 0.115.4
-        run: |
-          mkdir ~/hugo
-          cd ~/hugo
-          curl -L "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz" --output hugo.tar.gz
-          tar -xvzf hugo.tar.gz
-          sudo mv hugo /usr/local/bin    
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
 
       - name: 🛠️ Build website
-        run: hugo --gc --minify -s gpaola --baseURL "${{ steps.pages.outputs.base_url }}/" 
+        run: hugo --gc --minify -s ${{github.workspace}}/gpaola --baseURL "${{ steps.pages.outputs.base_url }}/" 
 
       - name: 📦 Upload artifact
         uses: actions/upload-pages-artifact@v1
