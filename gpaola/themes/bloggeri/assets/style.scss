@@ -1,0 +1,220 @@
+$primary: #363636;
+$link: #dfc938;
+
+$navbar-background-color: transparent;
+$navbar-item-color: rgb(62, 62, 62);
+$navbar-height: 4rem;
+
+$pagination-border-color: transparent;
+$pagination-color: rgb(62, 62, 62);
+$pagination-current-background-color: transparent;
+$pagination-current-border-color: transparent;
+$pagination-disabled-color: #787878;
+$pagination-disabled-background-color: transparent;
+$pagination-disabled-border-color: transparent;
+$pagination-active-border-color: transparent;
+$pagination-hover-border-color: transparent;
+
+$card-background-color: white;
+$card-shadow: transparent;
+
+
+{{ with .Site.Params.primaryColor }}
+$primary: {{ . }};
+{{ end }}
+{{ with .Site.Params.googleFont }}
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+$family-sans-serif: {{ . }}, sans-serif;
+{{ end }}
+
+@import "bulma/bulma.sass";
+
+.pagination {
+    font-size: 1rem;
+    font-weight: 200;
+    margin: -0.25rem;
+  }
+  .pagination-link.is-current {
+    font-weight: 400;
+  }
+.title-image {
+    padding-bottom: 2em;
+}
+
+
+.logo h1 {
+    font-family: Helvetica Medium, sans-serif;
+    font-size: 1.5em;
+}
+.title {
+    color: #363636;
+    font-size: 2.5rem;
+    font-weight: 200;
+    line-height: 1.125;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.subtitle {
+    color: #363636;
+    font-size: 1.25rem;
+    font-weight: 200;
+    line-height: 1.125;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.cat-links {
+    color: #363636;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.125;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.is-active {
+    font-style: bold;
+    font-weight: 600;
+}
+
+hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 1px solid #9b9b9b;
+    margin: 0 0;
+    padding: 0;
+}
+
+body {
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.max-800px {
+    max-width: 800px;
+}
+
+.author-image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 48px;
+    height: 70px;
+}
+.narrow-background {
+    display: table;
+    padding: 0.1em;
+}
+
+.card {
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+
+.columns.is-vcentered {
+    -webkit-box-align: center;
+       -ms-flex-align: center;
+          align-items: center;
+  }
+
+.columns.is-variable.is-1 {
+--columnGap: .2rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 0.1rem;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+    color: #4a4a4a;
+    max-width: 100%;
+    position: relative;
+}
+.content.is-vcentered {
+    display: flex;
+    align-content: center; /* used this for multiple child */
+    align-items: center; /* if an only child */
+    height: 70vh;
+}
+
+.demo-img {
+        width: 600px;
+        height: auto;
+        border: 1px solid;
+}
+/* image hover */
+.img__wrap {
+    position: relative;
+    display: inline-block
+  }
+  
+  .img__description {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(54, 54, 54, 0.72);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+  
+    /* transition effect */
+    transition: opacity .2s, visibility .2s;
+  }
+  
+  .img__wrap:hover .img__description {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+/**
+* Navbar
+**/
+
+.navbar {
+    &.is-transparent {
+    background-color: transparent;
+    background-image: none;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    top: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 30;
+    }
+}
+
+.navbar > .container .navbar-brand,
+.container > .navbar .navbar-brand {
+  margin-left: 0rem;
+}
+
+.navbar-collapse.in {
+    background: RGBA(0,0,0,0.85);
+}
+
+@media screen and (min-width: 1024px) {
+    .section {
+      padding: 3rem 1.5rem;
+    }
+  }
+
+  @media only screen and (max-width: 1023px) {
+    /* For tablet AND mobile */
+    .navbar-menu {
+        background-color: white !important;
+        width: 100%;
+
+    }
+}
+.container {
+    padding-top: 1rem;
+}

@@ -1,0 +1,231 @@
+$primary: #363636;
+$link: #eee078;
+$navbar-background-color: transparent;
+$navbar-item-color: rgb(62, 62, 62);
+$navbar-height: 4rem;
+$navbar-item-hover-background-color: transparent;
+
+
+{{ with .Site.Params.primaryColor }}
+$primary: {{ . }};
+{{ end }}
+{{ with .Site.Params.googleFont }}
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+$family-sans-serif: {{ . }}, sans-serif;
+{{ end }}
+
+
+
+@import "bulma/bulma.sass";
+
+.navbar {
+    &.is-transparent {
+    background-color: transparent;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    top:0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 30;
+    }
+}
+
+.navbar-brand .navbar-item{
+    color: #ffffcc;
+    padding-left: 1rem;
+}
+
+.logo h1 {
+    font-family: Helvetica Medium, sans-serif;
+    font-size: 1.5em;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: rgb(255,255,255);
+    background: linear-gradient(333deg, rgba(255,255,255,0.14047625886292014) 57%, rgba(255,245,150,0.23011211320465685) 73%, rgba(255,209,89,0.9107843821122199) 100%);  
+    top: 0px;
+}
+
+.columns {
+    &.is-fullheight {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: stretch;
+      .column {
+        overflow-y: visible;
+      }
+      overflow-y: hidden;
+    }
+  }
+  
+.section2 {
+    margin-left: 6%;
+    margin-right: 6%;
+    min-width: 100px;
+    padding-top: 5rem;
+}
+.section2 .title {
+    color: #333333;
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.section2 .subtitle {
+    color: #4a4a4a;
+    font-size: 1.25rem;
+    font-weight: 200;
+    line-height: 1.25;
+}
+
+.section2 {
+    color: #4a4a4a;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.25;
+    text-align: justify;
+}
+
+.section2 .columns .column {
+    padding-top: 0rem;
+}
+
+.section2 h1 {
+    color: #363636;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-style: bold;
+    line-height: 1.25;
+}
+.section2 h2 {
+    color: #4f4f4f;
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: bold;
+    line-height: 1.5;
+}
+
+.section1 {
+    margin-left: 2%;
+    margin-right: 2%;
+    min-width: 100px;
+}
+
+.section1 .columns .column {
+    padding-top: 1%;
+}
+
+.section1 .content {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.25;
+    text-align: left;
+}
+
+.section1 .content ul {
+    list-style: circle outside;
+    margin-left: 1rem;
+    margin-top: 0.5em;
+
+}
+
+.section1 .content li {
+    padding-left: 1em;
+
+}
+
+.section1 .content li span {
+    position: relative;
+    margin-left: -1em;
+    display: block;
+  }
+
+.section1 h4 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+.section1 h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+main {
+    flex: 1;
+}
+
+.author-image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 48px;
+    height: 70px;
+}
+.narrow-background {
+    display: table;
+    padding: 0.1em;
+}
+
+.hero-body {
+    position: absolute;
+    top: 35%;
+    padding-left: 3rem;
+}
+
+.columns .container {
+    min-width: 10rem;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.columns .column {
+    min-width: 6rem;
+}
+
+.footer {
+    background-color: transparent;
+    padding: 0rem 0rem 0rem;
+  }
+
+.has-background-primary {
+    background-color: #363636 !important;
+  }
+  
+.container {
+    padding-top: 0rem;
+}
+@media only screen and (max-width: 1023px) {
+    /* For tablet AND mobile */
+    .navbar-menu {
+      background-color: white !important;
+      width: 100%;
+    
+    }
+
+    .hero-body {
+        top: 35%;
+        padding-left: 1rem;
+    }
+    .footer {
+        background-color: transparent;
+        padding: 0rem 0rem 0rem;
+      }
+    .section2 .columns .column {
+        text-align: left !important;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones */
+    .navbar-burger {
+        color: white;
+      }
+  }

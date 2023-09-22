@@ -1,0 +1,207 @@
+$primary: #363636;
+$link: #eee078;
+$navbar-background-color: transparent;
+$navbar-item-color: rgb(62, 62, 62);
+$navbar-height: 4rem;
+$navbar-item-hover-background-color: transparent;
+
+
+{{ with .Site.Params.primaryColor }}
+$primary: {{ . }};
+{{ end }}
+{{ with .Site.Params.googleFont }}
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+$family-sans-serif: {{ . }}, sans-serif;
+{{ end }}
+
+
+.nunito{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: Normal; /*  This is just so when ever you call use this class, it uses the normal font weight by default */
+    }
+    
+.nunito-200{
+font-weight:200;
+}
+
+.nunito-300{ 
+font-weight:300;
+}
+
+.nunito-400{ /* you can also name this rbt-light or whatever you like*/
+font-weight:400;
+}
+
+.nunito-600{ /* you can also name this rbt-light or whatever you like*/
+font-weight:600;
+}
+.nunito-700{ /* you can also name this rbt-light or whatever you like*/
+font-weight:700;
+}
+.nunito-800{ /* you can also name this rbt-light or whatever you like*/
+font-weight:800;
+}
+.nunito-900{ /* you can also name this rbt-light or whatever you like*/
+font-weight:900;
+}
+
+
+p.normal {
+    font-weight: 400;
+}
+
+p.thick {
+    font-weight: bold;
+}
+
+p.thicker {
+    font-weight: 900;
+}
+
+@import "bulma/bulma.sass";
+
+.navbar {
+    &.is-transparent {
+    background-color: transparent;
+    background-image: none;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    top: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 30;
+    }
+}
+
+.logo h1 {
+    font-family: Helvetica Medium, sans-serif;
+    font-size: 1.5em;
+}
+
+body {
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+
+
+main {
+    flex: 1;
+}
+
+.author-image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 48px;
+    height: 70px;
+}
+.narrow-background {
+    display: table;
+    padding: 0.1em;
+}
+
+.hero {
+    min-height: 100%;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-body {
+    position: absolute;
+    top: 35%;
+    padding-left: 3rem;
+}
+.columns {
+    &.is-fullheight {
+      min-height: 40rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: stretch;
+      .column {
+        overflow-y: auto;
+      }
+    }
+  }
+
+
+.container {
+    padding-top: 0rem;
+    .title {
+        color: #363636;
+        font-size: 6vw;
+        font-weight: 400;
+        line-height: 1.125;
+      }
+      .subtitle {
+        color: #4a4a4a;
+        font-size: 4vw;
+        font-weight: 300;
+        line-height: 1.25;
+        text-transform: capitalize;
+        letter-spacing: 0em;
+      }
+      .content {
+        font-size: 2vw;
+        font-weight: 200;
+        max-width: 60%;
+      }
+}
+
+.footer {
+    background-color: transparent;
+    padding: 0rem 0rem 0rem;
+  }
+
+
+
+.title {
+    color: #363636;
+    font-size: 6vw;
+
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.125;
+    text-transform: capitalize;
+    letter-spacing: 0em;
+}
+
+@media only screen and (max-width: 1023px) {
+    .navbar {
+        margin-left: -.75rem;
+        position:fixed;
+    }
+    .navbar-menu {
+      background-color: white !important;
+      width: 100%;
+    
+    }
+
+    .hero-body {
+        top: 35%;
+        padding-left: 3rem;
+    }
+
+    .container {
+        .title {
+            color: #363636;
+            font-size: 8vw;
+            font-weight: 400;
+            line-height: 1.125;
+          }
+          .subtitle {
+            color: #4a4a4a;
+            font-size: 6.5vw;
+            font-weight: 300;
+            line-height: 1.25;
+          }
+          .content {
+            font-size: 3.5vw;
+            font-weight: 200;
+            max-width: 40%;
+          }
+    }
+
+  }
