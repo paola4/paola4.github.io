@@ -1,0 +1,57 @@
+# Deploying Hugo site to GitHub Pages
+name: Build and deploy to Pages
+
+on:
+  # Runs on push to main branch
+  push:
+    branches: ["main"]
+
+  # Allow to be manually started from the Action tab
+  workflow_dispatch:
+
+# Allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 💾 Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true #Themes in Hugo are usually submodules
+
+      - name: 📄 Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: ✨ Setup Hugo
+        env:
+          HUGO_VERSION: 0.111.3
+        run: |
+          mkdir ~/hugo
+          cd ~/hugo
+          curl -L "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz" --output hugo.tar.gz
+          tar -xvzf hugo.tar.gz
+          sudo mv hugo /usr/local/bin    
+
+      - name: 🛠️ Build website
+        run: hugo -s ${{github.workspace}}/gpaola -d ${{github.workspace}}/dist  --environment github-pages --log -v
+
+      - name: 📦 Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '${{github.workspace}}/dist'
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
