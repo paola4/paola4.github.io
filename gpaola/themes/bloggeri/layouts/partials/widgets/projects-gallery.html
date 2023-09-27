@@ -1,3 +1,7 @@
+{{ $template := resources.Get "style_override_projects_list.scss" }}
+{{ $style := $template | resources.ExecuteAsTemplate "style.scss" . | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+
 <figure class="img__wrap">
     {{ if and (isset .Params "image") .Params.image }}
     <a href="{{ .Permalink }}" title="" class="">
@@ -6,7 +10,7 @@
             <div class="hero">
                 <div class="hero-body">
                     <div class="container">
-                        <h1 class="title">{{ .Title }}</h1>
+                        <h1 class="title is-7-mobile">{{ .Title }}</h1>
                         <p> {{ .Description }}</p>
                     </div>
                 </div>

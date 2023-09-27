@@ -1,32 +1,109 @@
 {{ define "main" }}
+{{ $template := resources.Get "style_override_projects_single.scss" }}
+{{ $style := $template | resources.ExecuteAsTemplate "style.scss" . | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
 
-<div class="container is-fluid">
+<section class="hero is-primary is-small-with-navbar">
+  <div class="hero-body">
+    <p class="title">
+      Project: {{ .Title }}
+    </p>
+    <p class="subtitle">
+      {{ if .Params.repo }}
+      <div class="columns is-vcentered is-multiline is-mobile">
+        <div class="column is-narrow">
+          <span class="material-symbols-outlined">
+            link
+          </span>
+        </div>
+        <div class="column">
+          <a class="cat-links" href={{ .Params.repo }}>Github Repo Link</a>
+        </div>
+      </div>
+      {{ end }}
+
+      <div class="columns is-vcentered is-multiline is-mobile">
+        <div class="column is-narrow">
+          <span class="material-symbols-outlined">
+            sell
+          </span>
+        </div>
+        <div class="column">
+          {{ with (.GetTerms "tags") }}
+            <div class="tags">
+            {{ range . }}
+              <div class="tag">
+                <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+              </div>
+            {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+
+    </p>
+  </div>
+</section>
+
+<!-- <div class="section">
+  <div class="content">
+    <h1 class="title">{{ .Title }}</h1>
+    <div class="columns is-vcentered is-multiline is-mobile">
+      <div class="column is-narrow">
+        <span class="material-symbols-outlined">
+          link
+        </span>
+      </div>
+      <div class="column">
+        <a class="cat-links" href={{ .Params.repo }}>Github Repo Link</a>
+      </div>
+    </div>
+    <div class="columns is-vcentered is-multiline is-mobile">
+      <div class="column is-narrow">
+        <span class="material-symbols-outlined">
+          sell
+          </span>
+      </div>
+      <div class="column">
+        {{ with (.GetTerms "tags") }}
+          <div class="tags">
+          {{ range . }}
+            <div class="tag">
+              <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            </div>
+          {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container">
   <div class="section">
-      <h1 class="title">{{ .Title }}</h1>
       <div class="content">
           {{ .Content }}
       </div>
-    </div>
-
-  <section class="section">
-      <div class="columns is-centered">
-        <div class="column">
-          <div class="columns is-mobile">
-            <div class="column has-text-left">
-              {{ with .PrevInSection }}
-              <p>Previous post</p>
-              <a href="{{ .Permalink }}">{{ .Title }}</a>
-              {{ end }}
-            </div>
-            <div class="column has-text-right">
-              {{ with .NextInSection }}
-              <p>Next post</p>
-              <a href="{{ .Permalink }}">{{ .Title }}</a>
-            {{ end }}
-            </div>
-          </div>
+  </div>
+</div>
+<div class="section">
+  <div class="columns is-centered">
+    <div class="column">
+      <div class="columns is-mobile">
+        <div class="column has-text-left">
+          {{ with .PrevInSection }}
+          <p>Previous post</p>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+        </div>
+        <div class="column has-text-right">
+          {{ with .NextInSection }}
+          <p>Next post</p>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
         </div>
       </div>
-  </section>
+    </div>
+  </div>
 </div>
+
 {{ end }}

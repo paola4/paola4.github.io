@@ -5,6 +5,7 @@ $navbar-item-color: rgb(62, 62, 62);
 $navbar-height: 4rem;
 $navbar-item-hover-background-color: transparent;
 
+$icon-text-spacing:3em;
 
 {{ with .Site.Params.primaryColor }}
 $primary: {{ . }};
@@ -17,6 +18,13 @@ $family-sans-serif: {{ . }}, sans-serif;
 
 
 @import "bulma/bulma.sass";
+
+
+.icon-text .icon  {
+    margin-left: 0.1rem;
+    padding-right: .75em;
+  }
+
 
 .navbar {
     &.is-transparent {
@@ -39,6 +47,14 @@ $family-sans-serif: {{ . }}, sans-serif;
 .logo h1 {
     font-family: Helvetica Medium, sans-serif;
     font-size: 1.5em;
+}
+
+.right{
+    float:right;
+}
+
+.left{
+    float:left;
 }
 
 body {
@@ -66,7 +82,7 @@ body {
     margin-left: 6%;
     margin-right: 6%;
     min-width: 100px;
-    padding-top: 5rem;
+    padding-top: 2rem;
 }
 .section2 .title {
     color: #333333;
@@ -82,6 +98,7 @@ body {
     font-size: 1.25rem;
     font-weight: 200;
     line-height: 1.25;
+    // text-transform: lowercase;
 }
 
 .section2 {
@@ -101,7 +118,7 @@ body {
     font-size: 1.25rem;
     font-weight: 700;
     font-style: bold;
-    line-height: 1.25;
+    line-height: 1.5;
 }
 .section2 h2 {
     color: #4f4f4f;
@@ -111,21 +128,59 @@ body {
     line-height: 1.5;
 }
 
+.section2 .content h1 {
+    // text-transform: uppercase;
+    // letter-spacing: 0.02em;
+    margin-bottom: 1em;
+    // margin-top: 0.15em;
+}
+
+.section2 .content h2 {
+    color: #4f4f4f;
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: bold;
+    line-height: 1.25;
+    // text-transform: uppercase;
+    margin-bottom: 0.1em;
+    // margin-top: 0.15em;
+}
+.section2 h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.section2 strong {
+    color: #4f4f4f;
+    font-weight: 700;
+  }
+
 .section1 {
-    margin-left: 2%;
-    margin-right: 2%;
+    // margin-left: 2rem;
+    // margin-right: 2rem;
+    // padding-left: 0rem;
+    // padding-right: 0.9rem;
+    // min-width: 100px;
+    margin-left: 3rem;
+    margin-right: 3rem;
     min-width: 100px;
+    padding-top: 5rem;
+    padding-bottom:5rem;
 }
 
 .section1 .columns .column {
     padding-top: 1%;
+    // padding-left: 1rem;
+    // padding-right: 1rem;
 }
 
 .section1 .content {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    font-weight: 200;
-    line-height: 1.25;
+    font-size: .9rem;
+    font-weight: 300;
+    // line-height: 1.1rem;
     text-align: left;
 }
 
@@ -149,15 +204,15 @@ body {
 
 .section1 h4 {
     color: #fff;
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 600;
-    line-height: 1.25;
+    line-height: 1.15rem;
 }
 .section1 h3 {
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.2rem;
 }
 
 main {
@@ -187,7 +242,7 @@ main {
     padding-right: 1%;
 }
 .columns .column {
-    min-width: 6rem;
+    min-width: 7rem;
 }
 
 .footer {
@@ -209,18 +264,13 @@ main {
       width: 100%;
     
     }
-
-    .hero-body {
-        top: 35%;
-        padding-left: 1rem;
-    }
     .footer {
         background-color: transparent;
         padding: 0rem 0rem 0rem;
       }
-    .section2 .columns .column {
-        text-align: left !important;
-    }
+    // .section2 .columns .column {
+    //     text-align: left !important;
+    // }
   }
 
   @media only screen and (max-width: 768px) {
@@ -229,3 +279,5 @@ main {
         color: white;
       }
   }
+
+
