@@ -255,3 +255,13 @@ img {
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
+
+.screenshots {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  column-gap: 5px;
+}
+
+figure.image {
+  margin: 0 !important;
+}
